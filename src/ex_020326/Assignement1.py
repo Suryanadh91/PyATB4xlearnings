@@ -1,11 +1,11 @@
 # Task no:1
 num1 = int(input("Enter first number: "))
 num2 = int(input("Enter second number: "))
-print("addition:",num1+num2)
-print("subtraction:",num1-num2)
-print("multiplication:",num1*num2)
-print("division:",num1/num2)
-print("remainder:",num1%num2)
+print("Addition:",num1+num2)
+print("Subtraction:",num1-num2)
+print("Multiplication:",num1*num2)
+print("Division:",num1/num2)
+print("Remainder:",num1%num2)
 
 # Task no:2
 first_name = input("Enter your first name: ")
