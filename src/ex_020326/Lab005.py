@@ -29,3 +29,14 @@ print(percentage)
 print(f"{name} scored {round(percentage,2)} in exams")
 
 # escape sequences
+#  \n net line
+#  \t tab space
+#  \\ backslash insert a slash in the string
+#  \' puts single quote in single quoted string
+print("Hi Surya.\nWelcome home")
+print("Surya 35")
+print("Surya\t35")
+print("Yes\\No")
+print('what\'s your age') #single quote in single quoted string
+print("what's your age")
+print("he says \"we are leaning python\"") # backslash consider other double quotes as string in the sentence
