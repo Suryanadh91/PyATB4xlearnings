@@ -20,13 +20,18 @@ print(slice_str)
 match_obj = re.search("[0-9][0-9]", message)
 print(match_obj) # op: match 13
 
+# using .(dot) meta char it matches any char except new line char \n
+match_obj = re.search("[0-9][.][0-9][0-9]", message)
+print(match_obj) # here exactly . matches . only not as meta char
+
+print("#"*50)
+
 match_obj = re.search("[0-9][0-9]", "Roll:352")
 print(match_obj) # op: match 35
 match_obj = re.search("[0-9][0-9][0-9]", "Roll:352")
 print(match_obj) # op: match 352
-match_obj = re.search("[0-9][.][0-9][0-9]", message)
-print(match_obj) # here exactly . matches . only not as meta char
-# using .(dot) meta char it matches any char except new line char \n
+print("#"*50)
+
 # match_obj is 2026 - 0-9 take 2, . takes 0, 0-9 2, 0-9 6 => 2026
 message_1 = "This year is 2026"
 match_obj = re.search("[0-9].[0-9][0-9]", message_1)
@@ -36,28 +41,39 @@ print(match_obj)
 # r"" is raw string otherwise in consider /n as new line
 str = r"Old/new"
 pattern = "[A-Z][a-z][a-z].[a-z]"
-# [A-Z] -O, . - /
+# [A-Z] matches => Uppercase letter O, . matches => - /
 match_obj = re.search(pattern,str)
 print(match_obj)
-# \d and \D \d matches 1 digit char similar to [0-9]
+print("#"*50)
+
+# \d matches any digit char similar to [0-9]
 s1 = "Python3.14"
 pat = r"[a-z][a-z][a-z]\d"
 mobj = re.search(pat, s1)
-# \D consider any char other than a digit
 print(mobj)
+# \D consider any char except a digit
 pat = r"[a-z][a-z][a-z]\D"
 mobj = re.search(pat, s1)
 print(mobj)
+print("#"*50)
 
-# \s white space char and \n new line, \S any char with non space or new line
-s2  = "PYthon 3.14"
-pat2 = r"[a-z][a-z][a-z]\S"
-mobj = re.search(pat2, s2)
+# \s matches white space, tab and \n new line
+s2  = "Surya 3.14"
+pat_s = r"[a-z][a-z][a-z]\s"
+mobj = re.search(pat_s, s2)
 print(mobj)
+# \S any char except space, tab or new line
+pat_S = r"[a-z][a-z][a-z]\S"
+mobj = re.search(pat_S, s2)
+print(mobj)
+print("#"*50)
 
 # \w - matches [A-Z][a-z][0-9]_
-# \W - matches other then [A-Z][a-z][0-9]_
-S3 = "PYThon_3@.14"
-pat3 = r"\W\W"
-mobj = re.search(pat3, S3)
+S3 = "Python_3@.14"
+pat_w = r"[A-Z][a-z][a-z][a-z][a-z][a-z]\w[0-9]"
+mobj = re.search(pat_w, S3)
+print(mobj)
+# \W - matches except [A-Z][a-z][0-9]_
+pat_W = r"\W\W"
+mobj = re.search(pat_W, S3)
 print(mobj)
